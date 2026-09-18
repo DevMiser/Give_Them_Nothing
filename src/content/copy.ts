@@ -34,12 +34,9 @@ export const hero = {
 export const kickstarterPivot = {
   heading: 'A note about the Kickstarter.',
   body: [
-    'The Nothing Project was posted on Kickstarter as if it were a real product — a premium empty box, manufactured in the United States, with reward tiers starting at $18. It was, in fact, a parody: the funding goal was set intentionally unrealistically high, because the whole point of the joke was that no rational person would fund it.',
-    'They didn\'t. As designed.',
-    'Our original tagline — still printed on the box — is: "You can\'t get something for nothing, but you can get nothing for something."',
-    'The Kickstarter proved the first half. The second half is now, finally, up to you.',
-    'Rather than let the design files sit on a hard drive, we\'re releasing them for free. Print, fold, assemble the box. Or send our layout to a place like Packola and order a properly printed cardboard version.',
-    'You still get Nothing. It just costs you a little effort instead of $18.',
+    'The Nothing Project was originally created as a parody Kickstarter project. It was posted with an intentionally unrealistic funding goal because part of the joke was that very few people would be willing to pay something for nothing, even if it came in a premium empty Nothing box with a questionably clever Owner\'s manual.',
+    'Our original tagline, which is still printed on the box, is: "You can\'t get something for nothing, but you can get nothing for something."',
+    'But now you can get nothing for nothing (aside from a little effort).',
   ],
 };
 
@@ -75,7 +72,7 @@ export const diy = {
   careNote: {
     heading: 'DIY is the whole point.',
     body:
-      'A store-bought gift takes a credit card. A homemade Nothing takes a printer, some cardstock, ten minutes with a hobby knife, and the small act of folding a piece of paper into thirds. The effort IS the message. Anyone can spend $18 on a joke. Making one yourself, and handing it to someone, tells them you cared enough to fold nothing on purpose. For them.',
+      'A store-bought gift takes a credit card. A homemade Nothing takes a printer, some cardstock, ten minutes with a hobby knife, and the small act of folding a piece of paper into thirds. The effort IS the message. Anyone can spend money on a gag gift. Making one yourself, and handing it to someone, tells them you cared enough to fold nothing on purpose. For them.',
   },
   steps: [
     {
@@ -205,7 +202,7 @@ export const story = {
   body: [
     'I first thought of selling Nothing when I was a kid. Yeah, I\'m old now too. But back in the day, comic books had ads for novelties and gags like Sea Monkeys, X-Ray Specs, Itching Powder and Whoopee Cushions. I thought Nothing would make a natural fit.',
     'But I was a kid, and the thought passed. Until a few months ago, when I finally decided to do it — sort of.',
-    'I designed the box. I wrote the 22-use Owner\'s Manual. I photographed a prototype. I launched a Kickstarter to fund a first production run, with reward tiers starting at $18. But the funding goal was set intentionally unrealistically high — because the whole point was that no rational person would back a premium empty box, and watching them not-fund it was itself the joke.',
+    'I designed the box. I wrote the 22-use Owner\'s Manual. I photographed a prototype. I launched a Kickstarter to fund a first production run. But the funding goal was set intentionally unrealistically high — because the whole point was that no rational person would back a premium empty box, and watching them not-fund it was itself the joke.',
     'They didn\'t. As designed.',
     'The commercial version of Nothing was never really the point. The DIY version — the one you make in your kitchen with a printer and some tape, and hand to someone who will laugh at it — is arguably more on-brand anyway.',
     'The original tagline is still on the box: "You can\'t get something for nothing, but you can get nothing for something." The Kickstarter proved the first half. Now, if you want to, you can settle the second half yourself — by making one, and giving it to someone.',

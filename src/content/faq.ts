@@ -3,7 +3,7 @@ export type FaqEntry = { q: string; a: string };
 export const faq: FaqEntry[] = [
   {
     q: 'Wait, so this is free?',
-    a: 'Yes. The two design files — the Owner\'s Manual and the box layout — are released for free download. The idea was to sell finished boxes for $18 each via Kickstarter. That didn\'t fund. Rather than shelve everything, we\'re releasing the plans.',
+    a: 'Yes. The two design files — the Owner\'s Manual and the box layout — are released for free download. The idea was to sell finished boxes via Kickstarter. That didn\'t fund. Rather than shelve everything, we\'re releasing the plans.',
   },
   {
     q: 'What do I actually need to make one?',
@@ -31,7 +31,7 @@ export const faq: FaqEntry[] = [
   },
   {
     q: 'Why did the Kickstarter fail?',
-    a: 'A combination of things: modest reach, an $18 price point that read as "too high for a joke" and "too low to be premium" simultaneously, and the specific philosophical problem that people are, in fact, more comfortable getting nothing for nothing than getting nothing for something. The joke is on us. That is also on-brand.',
+    a: 'A combination of things: modest reach, a price point that read as "too high for a joke" and "too low to be premium" simultaneously, and the specific philosophical problem that people are, in fact, more comfortable getting nothing for nothing than getting nothing for something. The joke is on us. That is also on-brand.',
   },
   {
     q: 'Is Nothing real?',
