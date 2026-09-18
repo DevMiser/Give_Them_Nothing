@@ -1,0 +1,12 @@
+---
+import { finalCta } from '../content/copy';
+---
+<section class="section border-t border-bone-200/10">
+  <div class="rounded-3xl bg-bone-50 text-charcoal-950 p-10 md:p-16">
+    <h2 class="font-display text-4xl md:text-6xl tracking-tight leading-[1.05]">{finalCta.heading}</h2>
+    <p class="mt-6 text-lg md:text-xl max-w-2xl">{finalCta.body}</p>
+    <div class="mt-8">
+      <a href={finalCta.primaryCtaHref} class="btn-accent">{finalCta.primaryCta}</a>
+    </div>
+  </div>
+</section>

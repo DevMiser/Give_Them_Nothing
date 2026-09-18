@@ -1,0 +1,25 @@
+# Cloudflare Pages honors this file. Long-cache the heavy static assets.
+# HTML is left with default caching (short) so content updates ship immediately
+# after each deploy.
+
+/images/give-them-nothing.mp4
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/video-poster.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/the-nothing-project.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/box-layout.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/owners-manual.pdf
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon.ico
+  Cache-Control: public, max-age=604800
+
+# Astro fingerprints CSS/JS filenames — safe to cache forever.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable

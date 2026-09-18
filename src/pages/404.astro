@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro';
+import { notFound } from '../content/copy';
+---
+<Base title="Nothing here — NOTHING." description="As intended.">
+  <article class="section max-w-2xl text-center">
+    <h1 class="font-display text-7xl md:text-9xl">{notFound.heading}</h1>
+    <p class="mt-6 text-2xl text-bone-200/70">{notFound.body}</p>
+    <div class="mt-12">
+      <a href={notFound.ctaHref} class="btn-accent">{notFound.cta}</a>
+    </div>
+  </article>
+</Base>

@@ -1,0 +1,89 @@
+---
+import { diy } from '../content/copy';
+---
+<section id="diy" class="section border-t border-bone-200/10">
+  <span class="eyebrow">Make it yourself</span>
+  <h2 class="h-section mt-4">{diy.heading}</h2>
+  <p class="mt-6 prose-bone text-lg max-w-2xl">{diy.intro}</p>
+
+  <div class="mt-10 rounded-2xl border border-accent/30 bg-accent/5 p-6 max-w-3xl">
+    <h3 class="font-display text-xl text-bone-50">{diy.careNote.heading}</h3>
+    <p class="mt-3 prose-bone">{diy.careNote.body}</p>
+  </div>
+
+  <ol class="mt-14 space-y-14 md:space-y-16">
+    {diy.steps.map((step) => (
+      <li class="grid gap-6 md:grid-cols-[auto_1fr] md:gap-10">
+        <div class="font-display text-6xl md:text-7xl text-accent leading-none">{step.n}</div>
+        <div>
+          <h3 class="font-display text-2xl md:text-3xl">{step.title}</h3>
+          <div class="mt-4 space-y-3 prose-bone">
+            {step.body.map((p) => <p>{p}</p>)}
+          </div>
+
+          {step.options && (
+            <div class="mt-6 grid gap-4 sm:grid-cols-2">
+              {step.options.map((opt) => (
+                <div class="rounded-2xl border border-bone-200/10 bg-charcoal-900/60 p-5">
+                  <h4 class="font-display text-lg text-bone-50">{opt.title}</h4>
+                  <p class="mt-2 text-sm text-bone-200/70 leading-relaxed">{opt.body}</p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {step.cta && step.href && (
+            <div class="mt-6">
+              <a href={step.href} download class="btn-accent">
+                ↓ {step.cta}
+              </a>
+            </div>
+          )}
+
+          {step.folding && (
+            <div class="mt-8 rounded-2xl border border-bone-200/10 bg-charcoal-900/60 p-6">
+              <h4 class="font-display text-lg text-bone-50">{step.folding.heading}</h4>
+              <ol class="mt-4 space-y-2 text-sm text-bone-200/80 list-decimal list-inside">
+                {step.folding.instructions.map((line) => <li>{line}</li>)}
+              </ol>
+
+              <!-- Fold diagram: vertical, then half, then half again -->
+              <div class="mt-6 grid grid-cols-4 gap-3 max-w-lg">
+                <div class="text-center">
+                  <svg viewBox="0 0 80 60" class="w-full border border-bone-200/10 rounded bg-charcoal-950">
+                    <rect x="4" y="4" width="72" height="52" fill="none" stroke="#d8d6cd" stroke-width="1" />
+                    <line x1="40" y1="4" x2="40" y2="56" stroke="#05ce78" stroke-width="1" stroke-dasharray="3 2" />
+                  </svg>
+                  <div class="mt-1 text-xs text-bone-200/50">1. Vertical fold</div>
+                </div>
+                <div class="text-center">
+                  <svg viewBox="0 0 80 60" class="w-full border border-bone-200/10 rounded bg-charcoal-950">
+                    <rect x="22" y="4" width="36" height="52" fill="none" stroke="#d8d6cd" stroke-width="1" />
+                    <line x1="22" y1="30" x2="58" y2="30" stroke="#05ce78" stroke-width="1" stroke-dasharray="3 2" />
+                  </svg>
+                  <div class="mt-1 text-xs text-bone-200/50">2. Fold in half</div>
+                </div>
+                <div class="text-center">
+                  <svg viewBox="0 0 80 60" class="w-full border border-bone-200/10 rounded bg-charcoal-950">
+                    <rect x="22" y="16" width="36" height="28" fill="none" stroke="#d8d6cd" stroke-width="1" />
+                    <line x1="22" y1="30" x2="58" y2="30" stroke="#05ce78" stroke-width="1" stroke-dasharray="3 2" />
+                  </svg>
+                  <div class="mt-1 text-xs text-bone-200/50">3. Fold in half again</div>
+                </div>
+                <div class="text-center">
+                  <svg viewBox="0 0 80 60" class="w-full border border-bone-200/10 rounded bg-charcoal-950">
+                    <rect x="26" y="22" width="28" height="14" fill="#d8d6cd" opacity="0.15" stroke="#d8d6cd" stroke-width="1" />
+                    <text x="40" y="32" text-anchor="middle" fill="#d8d6cd" font-size="6" font-family="monospace">≈4.25″×1.4″</text>
+                  </svg>
+                  <div class="mt-1 text-xs text-bone-200/50">4. Insert in box</div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </li>
+    ))}
+  </ol>
+
+  <p class="mt-14 text-sm text-bone-200/50 italic max-w-3xl">{diy.disclaimer}</p>
+</section>

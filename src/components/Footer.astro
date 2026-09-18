@@ -1,0 +1,29 @@
+---
+import { footer, brand } from '../content/copy';
+---
+<footer class="border-t border-bone-200/10 mt-24">
+  <div class="mx-auto max-w-6xl px-6 md:px-10 py-14">
+    <div class="grid gap-10 md:grid-cols-3">
+      <div>
+        <div class="font-display text-2xl font-bold mb-3">{brand.navWordmark}</div>
+        <p class="text-bone-200/60 text-sm max-w-xs italic">"{footer.tagline}"</p>
+        <p class="text-bone-200/40 text-xs mt-2">{footer.taglineNote}</p>
+      </div>
+      <div class="text-sm">
+        <ul class="grid grid-cols-2 gap-2 text-bone-200/70">
+          {footer.links.map((l) => (
+            <li><a href={l.href} class="hover:text-bone-50 transition">{l.label}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div class="text-sm text-bone-200/60 space-y-3">
+        <p>{footer.designedIn}</p>
+        <p>{footer.license}</p>
+      </div>
+    </div>
+    <div class="mt-12 pt-6 border-t border-bone-200/10 text-xs text-bone-200/40 flex flex-wrap gap-3 justify-between">
+      <span>{footer.copyright}</span>
+      <span>Compatible with everything you already own.</span>
+    </div>
+  </div>
+</footer>

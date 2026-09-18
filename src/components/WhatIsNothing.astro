@@ -1,0 +1,29 @@
+---
+import { whatIsNothing } from '../content/copy';
+---
+<section class="section">
+  <span class="eyebrow">01 — The product</span>
+  <h2 class="h-section mt-4">{whatIsNothing.heading}</h2>
+
+  <div class="mt-10 grid gap-12 md:grid-cols-2">
+    <div class="space-y-5 prose-bone">
+      {whatIsNothing.intro.map((p) => <p>{p}</p>)}
+      {whatIsNothing.productCopy.map((p) => <p>{p}</p>)}
+    </div>
+    <div class="space-y-5 prose-bone">
+      <blockquote class="border-l-2 border-accent pl-5 italic text-bone-50">
+        <strong class="not-italic font-semibold">{whatIsNothing.stressTest.label}</strong>{' '}
+        {whatIsNothing.stressTest.quote}
+      </blockquote>
+    </div>
+  </div>
+
+  <dl class="mt-16 grid gap-x-8 gap-y-6 grid-cols-2 md:grid-cols-3 border-t border-bone-200/10 pt-10">
+    {whatIsNothing.specs.map((s) => (
+      <div>
+        <dt class="text-xs uppercase tracking-wider text-bone-200/50">{s.label}</dt>
+        <dd class="mt-1 text-bone-50 font-medium">{s.value}</dd>
+      </div>
+    ))}
+  </dl>
+</section>

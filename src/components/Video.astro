@@ -1,0 +1,22 @@
+---
+import { video } from '../content/copy';
+---
+<section id="video" class="section border-t border-bone-200/10">
+  <span class="eyebrow">Watch</span>
+  <h2 class="h-section mt-4">{video.heading}</h2>
+  <p class="mt-6 prose-bone text-lg max-w-2xl">{video.subheading}</p>
+
+  <div class="mt-10 rounded-3xl overflow-hidden border border-bone-200/10 bg-charcoal-900 max-w-4xl">
+    <video
+      controls
+      preload="metadata"
+      playsinline
+      poster={video.poster}
+      class="w-full h-auto block"
+    >
+      <source src={video.src} type="video/mp4" />
+      Sorry, your browser doesn't support embedded video. You can
+      <a href={video.src} class="underline text-accent">download it here</a>.
+    </video>
+  </div>
+</section>

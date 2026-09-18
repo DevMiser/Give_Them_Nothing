@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+import { story } from '../content/copy';
+---
+<Base title="Story — NOTHING." description="Why I made Nothing, why the Kickstarter failed, and why I'm releasing the plans for free.">
+  <article class="section max-w-3xl">
+    <span class="eyebrow">Story</span>
+    <h1 class="h-section mt-4">{story.heading}</h1>
+    <div class="mt-10 space-y-6">
+      {story.body.map((p) => <p class="prose-bone text-lg">{p}</p>)}
+    </div>
+    <div class="mt-12 flex flex-wrap gap-3">
+      <a href="/#diy" class="btn-accent">Get the plans — free</a>
+      <a href="/" class="btn-ghost">Back to home</a>
+    </div>
+  </article>
+</Base>

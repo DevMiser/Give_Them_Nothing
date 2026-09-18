@@ -1,0 +1,12 @@
+---
+import { kickstarterPivot } from '../content/copy';
+---
+<section class="section border-t border-bone-200/10">
+  <span class="eyebrow">The backstory</span>
+  <h2 class="h-section mt-4">{kickstarterPivot.heading}</h2>
+  <div class="mt-8 space-y-5 max-w-prose">
+    {kickstarterPivot.body.map((p) => (
+      <p class="prose-bone">{p}</p>
+    ))}
+  </div>
+</section>

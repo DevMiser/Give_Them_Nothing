@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Video from '../components/Video.astro';
+import KickstarterNote from '../components/KickstarterNote.astro';
+import WhatIsNothing from '../components/WhatIsNothing.astro';
+import DIY from '../components/DIY.astro';
+import WhyNow from '../components/WhyNow.astro';
+import WhyNothing from '../components/WhyNothing.astro';
+import Legacy from '../components/Legacy.astro';
+import FAQ from '../components/FAQ.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import KonamiEasterEgg from '../components/KonamiEasterEgg.astro';
+import { brand } from '../content/copy';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: 'The Nothing Project — DIY design files',
+  description: brand.taglinePivot,
+  creator: { '@type': 'Person', name: brand.foundedBy },
+  license: 'https://opensource.org/licenses/MIT',
+};
+---
+<Base>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <Hero />
+  <Video />
+  <WhatIsNothing />
+  <KickstarterNote />
+  <DIY />
+  <WhyNow />
+  <WhyNothing />
+  <Legacy />
+  <FAQ />
+  <FinalCTA />
+  <KonamiEasterEgg />
+</Base>

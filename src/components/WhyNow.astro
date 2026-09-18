@@ -1,0 +1,10 @@
+---
+import { whyNow } from '../content/copy';
+---
+<section class="section border-t border-bone-200/10">
+  <span class="eyebrow">02 — The moment</span>
+  <h2 class="h-section mt-4">{whyNow.heading}</h2>
+  <div class="mt-8 grid gap-6 md:grid-cols-2 max-w-4xl">
+    {whyNow.body.map((p) => <p class="prose-bone text-lg">{p}</p>)}
+  </div>
+</section>

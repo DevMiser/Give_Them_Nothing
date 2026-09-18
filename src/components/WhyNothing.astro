@@ -1,0 +1,17 @@
+---
+import { whyNothing } from '../content/copy';
+---
+<section class="section border-t border-bone-200/10">
+  <span class="eyebrow">03 — The case</span>
+  <h2 class="h-section mt-4">{whyNothing.heading}</h2>
+
+  <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    {whyNothing.pillars.map((p, i) => (
+      <div class="rounded-2xl border border-bone-200/10 bg-charcoal-900/60 p-6">
+        <div class="text-xs uppercase tracking-wider text-accent">0{i + 1}</div>
+        <h3 class="mt-3 text-xl font-display font-semibold">{p.title}</h3>
+        <p class="mt-3 text-bone-200/70 text-sm leading-relaxed">{p.body}</p>
+      </div>
+    ))}
+  </div>
+</section>

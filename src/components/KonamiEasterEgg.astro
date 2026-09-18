@@ -1,0 +1,41 @@
+---
+// Konami code: ↑ ↑ ↓ ↓ ← → ← → B A
+// On match: reveal hidden "Nothing Pro Max" mockup, permanently sold out.
+---
+<div
+  id="konami-egg"
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-charcoal-950/95 backdrop-blur p-6"
+>
+  <div class="max-w-md text-center space-y-5">
+    <div class="text-xs uppercase tracking-[0.2em] text-accent">Concept · Not for sale</div>
+    <h2 class="font-display text-4xl">NOTHING. Pro Max</h2>
+    <p class="text-bone-200/70">
+      A slightly larger box containing slightly more nothing. Production paused indefinitely
+      due to overwhelming absence of demand.
+    </p>
+    <div class="text-bone-200/40 text-sm">Sold out forever.</div>
+    <button id="konami-close" class="btn-ghost">Return to Nothing</button>
+  </div>
+</div>
+
+<script>
+  const seq = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+  let pos = 0;
+  document.addEventListener('keydown', (e) => {
+    const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+    if (key === seq[pos]) {
+      pos++;
+      if (pos === seq.length) {
+        document.getElementById('konami-egg')?.classList.remove('hidden');
+        document.getElementById('konami-egg')?.classList.add('flex');
+        pos = 0;
+      }
+    } else {
+      pos = 0;
+    }
+  });
+  document.getElementById('konami-close')?.addEventListener('click', () => {
+    document.getElementById('konami-egg')?.classList.add('hidden');
+    document.getElementById('konami-egg')?.classList.remove('flex');
+  });
+</script>

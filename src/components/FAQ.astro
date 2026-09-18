@@ -1,0 +1,19 @@
+---
+import { faq } from '../content/faq';
+---
+<section id="faq" class="section border-t border-bone-200/10">
+  <span class="eyebrow">06 — Frequently asked</span>
+  <h2 class="h-section mt-4">Questions about Nothing.</h2>
+
+  <div class="mt-10 divide-y divide-bone-200/10 border-y border-bone-200/10">
+    {faq.map((item) => (
+      <details class="group py-5 cursor-pointer">
+        <summary class="flex justify-between items-center gap-4 list-none">
+          <span class="text-lg font-medium">{item.q}</span>
+          <span class="text-bone-200/40 group-open:rotate-45 transition-transform text-2xl leading-none">+</span>
+        </summary>
+        <p class="mt-3 prose-bone">{item.a}</p>
+      </details>
+    ))}
+  </div>
+</section>
