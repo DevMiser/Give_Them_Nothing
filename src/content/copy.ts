@@ -1,7 +1,3 @@
-// All marketing copy lives here so edits don't require touching templates.
-// Quotable lines are pulled VERBATIM from the original Kickstarter campaign
-// — they ARE the product. Don't paraphrase them.
-
 export const brand = {
   name: 'NOTHING.',            // used in <title>, schema, and body headlines
   navWordmark: 'The Nothing Project', // shown in the top nav (small text at the top of every page)
@@ -34,7 +30,7 @@ export const hero = {
 export const kickstarterPivot = {
   heading: 'A note about the Kickstarter.',
   body: [
-    'The Nothing Project was originally created as a parody Kickstarter project. It was posted with an intentionally unrealistic funding goal because part of the joke was that very few people would be willing to pay something for nothing, even if it came in a premium empty Nothing box with a questionably clever Owner\'s manual.',
+    'The Nothing Project was originally created as a parody Kickstarter project. It was posted with an intentionally unrealistic funding goal for a premium empty Nothing box with a questionably clever Owner\'s manual.',
     'Our original tagline, which is still printed on the box, is: "You can\'t get something for nothing, but you can get nothing for something."',
     'But now you can get nothing for nothing (aside from a little effort).',
   ],
@@ -51,12 +47,12 @@ export const whatIsNothing = {
     'Nothing comes with a meticulously written, one-page double-sided Owner\'s Manual that details 22 ways you can utilize your new void.',
   ],
   stressTest: {
-    label: 'The Relationship Stress-Test.',
+    label: 'Use Example from Owner\'s Manual: The Relationship Stress-Test.',
     quote:
       'Give this to a partner. If they laugh, they are a keeper. If they look inside and ask, "Where is the rest of it?", they are clearly not ready for the profound depth of your philosophical emptiness. It is cheaper than couples counseling and significantly more portable.',
   },
   specs: [
-    { label: 'Dimensions', value: '4.5″ × 3″ × 3″' },
+    { label: 'Box Dimensions', value: '4.5″ × 3″ × 3″' },
     { label: 'Material', value: 'Corrugated cardstock (recommended)' },
     { label: 'Print', value: 'Any black-and-white or color printer' },
     { label: 'Origin', value: 'Your printer / any print shop / Packola' },
@@ -84,13 +80,27 @@ export const diy = {
       ],
       cta: 'Download the Owner\'s Manual (PDF, 60 KB)',
       href: '/owners-manual.pdf',
+      preview: {
+        images: [
+          {
+            src: '/images/manual-page-1.png',
+            alt: 'Page 1 of the Nothing Owner\'s Manual — the front side.',
+            caption: 'Page 1 (front)',
+          },
+          {
+            src: '/images/manual-page-2.png',
+            alt: 'Page 2 of the Nothing Owner\'s Manual — the back side.',
+            caption: 'Page 2 (back)',
+          },
+        ],
+      },
       folding: {
         heading: 'Then fold it to fit in the box:',
         instructions: [
           'Fold once vertically down the middle.',
           'Fold once horizontally in half.',
           'Fold once more horizontally in half.',
-          'The finished manual should be roughly 4.25″ × 1.4″ — small enough to sit comfortably inside the Nothing.',
+          'The finished manual should be roughly 4.25″ × 2.75″ — small enough to sit comfortably inside the Nothing.',
         ],
       },
     },
@@ -114,6 +124,15 @@ export const diy = {
       ],
       cta: 'Download the box layout (PNG, 495 KB)',
       href: '/box-layout.png',
+      preview: {
+        images: [
+          {
+            src: '/box-layout.png',
+            alt: 'The Nothing box die-line layout, printable on cardstock.',
+            caption: 'Print at 100% scale on cardstock. Cut solid lines, fold dashed lines.',
+          },
+        ],
+      },
     },
     {
       n: '03',
@@ -125,7 +144,7 @@ export const diy = {
     },
   ],
   disclaimer:
-    'The design files are released under the MIT License, for personal and small-batch use. Please don\'t mass-produce and sell counterfeits. (We are definitely not in the process of trademarking "Nothing." Imitation is the sincerest form of flattery. We are totally unprepared to defend the purity of our Nothing against low-quality "Something" imitators.)',
+    'The design files are released under the MIT License, for personal and small-batch commercial use (with attribution). Please don\'t mass-produce counterfits for sale.',
 };
 
 export const video = {

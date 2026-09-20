@@ -32,6 +32,29 @@ import { diy } from '../content/copy';
             </div>
           )}
 
+          {step.preview && (
+            <figure class="mt-6">
+              <div class:list={[
+                'grid gap-3 max-w-3xl',
+                step.preview.images.length > 1 ? 'sm:grid-cols-2' : '',
+              ]}>
+                {step.preview.images.map((img) => (
+                  <div class="space-y-1">
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      loading="lazy"
+                      class="w-full h-auto rounded-lg border border-bone-200/15 bg-bone-50 shadow-lg"
+                    />
+                    {img.caption && (
+                      <div class="text-xs text-bone-200/50 text-center">{img.caption}</div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </figure>
+          )}
+
           {step.cta && step.href && (
             <div class="mt-6">
               <a href={step.href} download class="btn-accent">
@@ -72,8 +95,8 @@ import { diy } from '../content/copy';
                 </div>
                 <div class="text-center">
                   <svg viewBox="0 0 80 60" class="w-full border border-bone-200/10 rounded bg-charcoal-950">
-                    <rect x="26" y="22" width="28" height="14" fill="#d8d6cd" opacity="0.15" stroke="#d8d6cd" stroke-width="1" />
-                    <text x="40" y="32" text-anchor="middle" fill="#d8d6cd" font-size="6" font-family="monospace">≈4.25″×1.4″</text>
+                    <rect x="24" y="18" width="32" height="24" fill="#d8d6cd" opacity="0.15" stroke="#d8d6cd" stroke-width="1" />
+                    <text x="40" y="32" text-anchor="middle" fill="#d8d6cd" font-size="6" font-family="monospace">≈4.25″×2.75″</text>
                   </svg>
                   <div class="mt-1 text-xs text-bone-200/50">4. Insert in box</div>
                 </div>
