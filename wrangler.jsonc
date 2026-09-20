@@ -1,0 +1,15 @@
+// Cloudflare Workers static-assets config for The Nothing Project.
+// This file tells `wrangler deploy` where the built site lives and how
+// to route missing URLs. Without it, Cloudflare's defaults serve
+// index.html for every unknown path (SPA fallback), which breaks
+// /sitemap-index.xml, /robots.txt, /story/, /press/, etc.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "give-them-nothing",
+  "compatibility_date": "2026-09-18",
+  "compatibility_flags": ["global_fetch_strictly_public"],
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}
