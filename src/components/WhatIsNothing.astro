@@ -1,22 +1,25 @@
 ---
 import { whatIsNothing } from '../content/copy';
+import BoxRotator from './BoxRotator.astro';
 ---
 <section class="section">
   <span class="eyebrow">01 — The product</span>
   <h2 class="h-section mt-4">{whatIsNothing.heading}</h2>
 
-  <div class="mt-10 grid gap-12 md:grid-cols-2">
+  <div class="mt-10 grid gap-12 md:grid-cols-2 md:items-center">
     <div class="space-y-5 prose-bone">
       {whatIsNothing.intro.map((p) => <p>{p}</p>)}
       {whatIsNothing.productCopy.map((p) => <p>{p}</p>)}
     </div>
-    <div class="space-y-5 prose-bone">
-      <blockquote class="border-l-2 border-accent pl-5 italic text-bone-50">
-        <strong class="not-italic font-semibold">{whatIsNothing.stressTest.label}</strong>{' '}
-        {whatIsNothing.stressTest.quote}
-      </blockquote>
+    <div>
+      <BoxRotator />
     </div>
   </div>
+
+  <blockquote class="mt-12 border-l-2 border-accent pl-5 italic text-bone-50 max-w-3xl">
+    <strong class="not-italic font-semibold">{whatIsNothing.stressTest.label}</strong>{' '}
+    {whatIsNothing.stressTest.quote}
+  </blockquote>
 
   <dl class="mt-16 grid gap-x-8 gap-y-6 grid-cols-2 md:grid-cols-3 border-t border-bone-200/10 pt-10">
     {whatIsNothing.specs.map((s) => (

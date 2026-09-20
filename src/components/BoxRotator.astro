@@ -1,0 +1,201 @@
+---
+// Rotatable 3D preview of the NOTHING box.
+// All 6 face textures are cropped from public/box-layout.png (the physical
+// die-line), so what you rotate through is the actual printed artwork on every
+// side of the assembled box.
+//
+// Proportions: 4.5" × 3" × 3" (long × tall × deep), matching the real product.
+// Interaction: auto-rotates when idle, drag to inspect, respects
+// prefers-reduced-motion.
+---
+<div
+  class="box-scene"
+  role="img"
+  aria-label="Rotatable 3D preview of the NOTHING box. Drag to rotate and see all six sides."
+>
+  <div class="box-cuboid" id="box-cuboid">
+    <div class="box-face box-face-front">
+      <img
+        src="/images/box/front.png"
+        alt="Front panel: 'You can't get something for nothing, but you can get nothing for something.'"
+      />
+    </div>
+    <div class="box-face box-face-back">
+      <img
+        src="/images/box/back.png"
+        alt="Back panel: contents, features, made-in-USA note, QR code, and GiveThemNothing.com URL."
+      />
+    </div>
+    <div class="box-face box-face-right">
+      <img
+        src="/images/box/right.png"
+        alt="Right end: 'IDEAL FOR THE PERSON WHO HAS EVERYTHING. Now they also have Nothing.' with storage tips."
+      />
+    </div>
+    <div class="box-face box-face-left">
+      <img
+        src="/images/box/left.png"
+        alt="Left end: 'WARNING: NO CHOKING HAZARD' and other absurd safety instructions."
+      />
+    </div>
+    <div class="box-face box-face-top">
+      <img
+        src="/images/box/top.png"
+        alt="Top of the box, printed with 'NOTHING. 100% Guaranteed Absence of Matter.'"
+      />
+    </div>
+    <div class="box-face box-face-bottom">
+      <img
+        src="/images/box/bottom.png"
+        alt="Bottom of the box: QR code, copyright notice, and trademark disclaimer."
+      />
+    </div>
+  </div>
+</div>
+<p class="box-hint" aria-hidden="true">Drag to inspect ↔</p>
+
+<style>
+  .box-scene {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    /* Square aspect so the tilted 3D cube's projected bounds don't spill
+       into the hint below at any rotation angle. */
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    perspective: 1400px;
+    user-select: none;
+    touch-action: none;
+  }
+  .box-cuboid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 450px;
+    height: 300px;
+    margin-left: -225px;
+    margin-top: -150px;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--rot-x, -14deg)) rotateY(var(--rot-y, -28deg));
+    cursor: grab;
+    will-change: transform;
+  }
+  .box-cuboid:active { cursor: grabbing; }
+
+  /* Shrink the cuboid on narrow viewports so the whole thing stays visible. */
+  @media (max-width: 640px) {
+    .box-cuboid {
+      transform: scale(0.62) rotateX(var(--rot-x, -14deg)) rotateY(var(--rot-y, -28deg));
+    }
+  }
+
+  .box-face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    overflow: hidden;
+  }
+  .box-face img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+  }
+
+  /* Long panels (4.5" × 3"): front + back */
+  .box-face-front  { width: 450px; height: 300px; transform: translateZ(150px); }
+  .box-face-back   { width: 450px; height: 300px; transform: rotateY(180deg) translateZ(150px); }
+
+  /* Short end panels (3" × 3"): left + right — centered on the cuboid's X axis */
+  .box-face-right  { left: 75px; width: 300px; height: 300px; transform: rotateY(90deg)  translateZ(225px); }
+  .box-face-left   { left: 75px; width: 300px; height: 300px; transform: rotateY(-90deg) translateZ(225px); }
+
+  /* Top + bottom (4.5" long × 3" deep, laid flat) */
+  .box-face-top    { width: 450px; height: 300px; transform: rotateX(90deg)  translateZ(150px); }
+  .box-face-bottom { width: 450px; height: 300px; transform: rotateX(-90deg) translateZ(150px); }
+
+  /* Subtle per-face brightness for depth cueing without needing real lighting. */
+  .box-face-top    img { filter: brightness(1.08); }
+  .box-face-bottom img { filter: brightness(0.85); }
+  .box-face-left  img,
+  .box-face-right img  { filter: brightness(0.92); }
+
+  .box-hint {
+    margin: 0 0 0;
+    text-align: center;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(216, 214, 205, 0.5);
+  }
+</style>
+
+<script>
+  const cuboid = document.getElementById('box-cuboid');
+  if (cuboid) {
+    let rotX = -14;
+    let rotY = -28;
+    let dragging = false;
+    let startClientX = 0;
+    let startClientY = 0;
+    let startRotX = 0;
+    let startRotY = 0;
+    let idleUntil = 0;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const apply = () => {
+      cuboid.style.setProperty('--rot-x', rotX.toFixed(2) + 'deg');
+      cuboid.style.setProperty('--rot-y', rotY.toFixed(2) + 'deg');
+    };
+    apply();
+
+    const getPointer = (e) => (e.touches ? e.touches[0] : e);
+
+    const onDown = (e) => {
+      dragging = true;
+      const p = getPointer(e);
+      startClientX = p.clientX;
+      startClientY = p.clientY;
+      startRotX = rotX;
+      startRotY = rotY;
+      e.preventDefault();
+    };
+    const onMove = (e) => {
+      if (!dragging) return;
+      const p = getPointer(e);
+      const dx = p.clientX - startClientX;
+      const dy = p.clientY - startClientY;
+      rotY = startRotY + dx * 0.5;
+      rotX = Math.max(-80, Math.min(80, startRotX - dy * 0.5));
+      apply();
+    };
+    const onUp = () => {
+      if (!dragging) return;
+      dragging = false;
+      idleUntil = performance.now() + 2000; // resume auto-spin after 2s
+    };
+
+    cuboid.addEventListener('mousedown', onDown);
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+    cuboid.addEventListener('touchstart', onDown, { passive: false });
+    window.addEventListener('touchmove', onMove, { passive: true });
+    window.addEventListener('touchend', onUp);
+
+    if (!prefersReducedMotion) {
+      let last = performance.now();
+      const tick = (now) => {
+        const dt = now - last;
+        last = now;
+        if (!dragging && now >= idleUntil) {
+          rotY += dt * 0.018; // ~one revolution per 20 s
+          apply();
+        }
+        requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }
+  }
+</script>
