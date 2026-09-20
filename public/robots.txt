@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://givethemnothing.com/sitemap-index.xml
