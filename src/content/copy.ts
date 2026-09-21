@@ -75,7 +75,7 @@ export const diy = {
       n: '01',
       title: 'Download and print the Owner\'s Manual.',
       body: [
-        'The one-page, double-sided Owner\'s Manual containing 22 recommended uses for your Nothing. Includes safety warnings and storage instructions.',
+        'The one-page, double-sided Owner\'s Manual containing 22 recommended uses for your Nothing.',
         'Print settings: US Letter or A4, double-sided (flip on long edge), black-and-white, 100% scale (do not "fit to page").',
       ],
       cta: 'Download the Owner\'s Manual (PDF, 60 KB)',
@@ -114,12 +114,12 @@ export const diy = {
         {
           title: 'Print and assemble yourself.',
           body:
-            'Print at 100% scale on cardstock (65 lb / 176 gsm or heavier is recommended). Cut along solid lines, fold along dashed lines, glue or tape the tabs. Charcoal cardstock gives the best result; white works too.',
+            'Print on cardstock (65 lb / 176 gsm or heavier is recommended) at the scale shown on the template (or smaller if you prefer). Cut along the solid lines, fold along the red lines, glue or tape the tabs. Charcoal cardstock gives the best result; white works too.',
         },
         {
-          title: 'Send it to a proper print shop.',
+          title: 'Or send it to a print shop.',
           body:
-            'Upload the layout to a custom-box service like Packola, PakFactory, or PackMojo as a die-line template. Choose matte charcoal corrugated with white water-based print for the closest match to the original design. Minimum order is usually 25–100 units — worth it if you\'re making them as gifts.',
+            'Upload the layout to a custom-box service like Packola, PakFactory, or PackMojo as a die-line template. Choose matte charcoal corrugated with white water-based print for the closest match to the original design.',
         },
       ],
       cta: 'Download the box layout (PNG, 495 KB)',
@@ -129,7 +129,7 @@ export const diy = {
           {
             src: '/box-layout.png',
             alt: 'The Nothing box die-line layout, printable on cardstock.',
-            caption: 'Print at 100% scale on cardstock. Cut solid lines, fold dashed lines.',
+            caption: 'Print on cardstock. Cut solid lines, fold red lines.',
           },
         ],
       },
